@@ -66,5 +66,6 @@ async def refresh_msg(nickname, msg_box):
             chat_msgs = chat_msgs[len(chat_msgs) // 2:]
         
         last_idx = len(chat_msgs)
+port1 = int(os.environ.get('PORT', 17995))
 if __name__ == "__main__":
-    pywebio.platform.tornado_http.start_server(main, host='chatforus.herokuapp.com', debug=False, cdn=True, static_dir=None, allowed_origins=None, check_origin=None, auto_open_webbrowser=False, session_expire_seconds=None, session_cleanup_interval=None, max_payload_size='200M')
+    pywebio.platform.tornado_http.start_server(main, port=port1, host='chatforus.herokuapp.com', debug=False, cdn=True, static_dir=None, allowed_origins=None, check_origin=None, auto_open_webbrowser=False, session_expire_seconds=None, session_cleanup_interval=None, max_payload_size='200M')
