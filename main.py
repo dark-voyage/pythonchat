@@ -64,5 +64,4 @@ async def refresh_msg(nickname, msg_box):
         
         last_idx = len(chat_msgs)
 
-if __name__ == "__main__":
-    start_server(main, auto_open_webbrowser=True)
+start_server(main, auto_open_webbrowser=True)
