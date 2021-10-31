@@ -8,12 +8,12 @@ from pywebio.session import defer_call, info as session_info, run_async, run_js
 chat_msgs = []
 online_users = set()
 
-MAX_MESSAGES_COUNT = 100
+MAX_MESSAGES_COUNT = 150
 
 async def main():
     global chat_msgs
     
-    put_markdown("## 👋 Onlayn chatga xush kelibsiz!\nBu chat 68dan kamroq qator koddan tashkil etilgan! xabarlar soni 100tadan oshsa o'chadi")
+    put_markdown("## 👋 Onlayn chatga xush kelibsiz!\nBu chat 68dan kamroq qator koddan tashkil etilgan! xabarlar soni 150tadan oshsa o'chadi")
 
     msg_box = output()
     put_scrollable(msg_box, height=300, keep_bottom=True)
@@ -65,4 +65,4 @@ async def refresh_msg(nickname, msg_box):
         last_idx = len(chat_msgs)
 
 if __name__ == "__main__":
-    start_server(main, debug=True, port=8080, cdn=False)
+    start_server(main, debug=True, auto_open_webbrowser=True)
