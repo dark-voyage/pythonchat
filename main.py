@@ -1,9 +1,12 @@
 import asyncio
 
 from pywebio import start_server
+import pywebio
 from pywebio.input import *
 from pywebio.output import *
-from pywebio.session import defer_call, info as session_info, run_async, run_js
+from pywebio.platform import tornado
+from pywebio.session import base, defer_call, info as session_info, run_async, run_js
+import os.path
 
 chat_msgs = []
 online_users = set()
@@ -63,5 +66,4 @@ async def refresh_msg(nickname, msg_box):
             chat_msgs = chat_msgs[len(chat_msgs) // 2:]
         
         last_idx = len(chat_msgs)
-
-pywebio.platform.path_deploy(base, port=0, host='chatforus.herokuapp.com', index=True, static_dir=None, reconnect_timeout=0, cdn=True, debug=True, allowed_origins=None, check_origin=None, max_payload_size='200M', **tornado_app_settings)
+pywebio.platform.tornado_http.start_server(main, port=8080, host='chatforus.herokuapp.com', debug=False, cdn=True, static_dir=None, allowed_origins=None, check_origin=None, auto_open_webbrowser=False, session_expire_seconds=None, session_cleanup_interval=None, max_payload_size='200M')
