@@ -64,4 +64,4 @@ async def refresh_msg(nickname, msg_box):
         
         last_idx = len(chat_msgs)
 
-start_server(main, auto_open_webbrowser=True)
+pywebio.platform.path_deploy(base, port=0, host='chatforus.herokuapp.com', index=True, static_dir=None, reconnect_timeout=0, cdn=True, debug=True, allowed_origins=None, check_origin=None, max_payload_size='200M', **tornado_app_settings)
